@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #ffb6c1, #ff69b4, #ffc0cb, #ffb6c1);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.stage {
+    display: none;
+    position: relative;
+    z-index: 20;
+}
+
+.stage.active {
+    display: block;
+}
+
+.title {
+    color: #ff1493;
+    margin-bottom: 40px;
+    font-size: 28px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 30;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    position: relative;
+    z-index: 30;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: relative;
+    z-index: 40;
+}
+
+.yes-btn {
+    background-color: #ff1493;
+    color: white;
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    background-color: #ff69b4;
+}
+
+.no-btn {
+    background-color: #c0c0c0;
+    color: white;
+    position: relative;
+}
+
+.no-btn:hover {
+    background-color: #a9a9a9;
+}
+
+.love-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.love-img {
+    position: fixed;
+    max-width: 150px;
+    max-height: 150px;
+    transform-origin: center;
+    opacity: 1;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.invitation-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.ritual-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.money-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.enlarged {
+    transform: scale(1.5);
+}
+
+.shrunk {
+    transform: scale(0.8);
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Yes button rotating text variations */
+.rotating-text:after {
+    content: "";
+    margin-left: 5px;
+    animation: yesButtonRotate 4s infinite;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@keyframes yesButtonRotate {
+    0%, 100% { content: "求求你了"; }
+    25% { content: "答应我吧"; }
+    50% { content: "好不好嘛"; }
+    75% { content: "就说好吧"; }
+}
+
+/* No button rotating text variations */
+.no-btn-text:after {
+    content: "";
+    margin-left: 5px;
+    animation: noButtonRotate 4s infinite;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+@keyframes noButtonRotate {
+    0%, 100% { content: "追不到"; }
+    25% { content: "不让你追"; }
+    50% { content: "别想了"; }
+    75% { content: "放弃吧"; }
+}
+
+/* Success page styles */
+.success-title {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ff1493;
+}
+
+.rejection-stats {
+    margin: 20px auto 30px;
+    max-width: 500px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(255, 20, 147, 0.2);
+    text-align: left;
+}
+
+.rejection-stats p {
+    font-size: 20px;
+    color: #ff1493;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.rejection-stats ul {
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.rejection-stats li {
+    font-size: 18px;
+    color: #ff69b4;
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.rejection-stats li:before {
+    content: "❤";
+    position: absolute;
+    left: 0;
+    color: #ff1493;
+}
+
+.reject-count, .reject-count-total {
+    font-weight: bold;
+    color: #ff1493;
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+}
+
+.reject-count-total {
+    font-size: 24px;
+}
+
+.total-count {
+    font-size: 22px !important;
+    border-top: 2px dashed #ff69b4;
+    padding-top: 15px;
+    margin-top: 10px !important;
+}
+
+.chase-message {
+    font-size: 26px !important;
+    margin-top: 20px !important;
+    color: #ff1493;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.heart-container {
+    margin: 30px auto;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 90px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: #ff1493;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(0.8); }
+    5% { transform: scale(0.9); }
+    10% { transform: scale(0.8); }
+    15% { transform: scale(1); }
+    50% { transform: scale(0.8); }
+    100% { transform: scale(0.8); }
+}
+
+.date-message {
+    font-size: 18px;
+    color: #ff1493;
+    margin-top: 30px;
+}
+
+/* Style for floating hearts */
+.floating-heart {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+} 
