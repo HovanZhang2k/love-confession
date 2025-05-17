@@ -1,6 +1,6 @@
 // 可编辑的配置文件 - 即使不懂代码也可以轻松修改
 
-// 图片路径配置
+// 图片路径配置，如要新增图片放在assets文件夹下，文件名最好使用英文不容易出错
 const IMAGES = {
     love1: 'assets/love1.jpeg',
     love2: 'assets/love2.jpeg',
@@ -23,6 +23,7 @@ const STAGES = {
             3: "真的不要",
             5: "绝对不要"
         },
+        // 如果有新增或者修改的图片放在这个集合里，下面其他三个stage同理
         images: ['love1', 'love2', 'love3'],
         nextStage: 2
     },
