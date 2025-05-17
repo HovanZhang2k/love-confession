@@ -2,12 +2,12 @@
 
 // 图片路径配置
 const IMAGES = {
-    love1: 'assets/爱你1.jpeg',
-    love2: 'assets/爱你2.jpeg',
-    love3: 'assets/爱你3.jpeg',
-    invitation: 'assets/邀请1.jpeg',
-    ritual: 'assets/仪式感.jpeg',
-    money520: 'assets/转520.jpg',
+    love1: 'assets/love1.jpeg',
+    love2: 'assets/love2.jpeg',
+    love3: 'assets/love3.jpeg',
+    invitation: 'assets/invitation.jpeg',
+    ritual: 'assets/ritual.jpeg',
+    money520: 'assets/520.jpg',
     money1314: 'assets/1314.jpeg'
 };
 
